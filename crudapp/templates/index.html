@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <a href="{% url 'login_page' %}" title="" class="btn btn-default">Login</a>
+
+    {% for i in posts_queryset %}
+    <h3> {{ i.title }} </h3>
+    <p> {{ i.subtitle }}</p>
+    <small class="pull-left"> {{ i.author }} on {{ i.post_date }}</small>
+    <br>
+        <a href="{% url 'post_create_page' %}" title="" class="btn btn-default">Post-Create</a>
+    <br>
+        <a href="{% url 'post_read_page' post_id=i.id %}" title="" class="btn btn-default">Post-Read</a>
+    <br>
+        <a href="{% url 'post_update_page' post_id=i.id %}" title="" class="btn btn-default">Post-Update</a>
+    <br>
+       <a href="{% url 'post_delete_page' post_id=i.id %}" title="" class="btn btn-default">Post-Delete</a>
+    {% endfor %}
+</body>
+</html>
